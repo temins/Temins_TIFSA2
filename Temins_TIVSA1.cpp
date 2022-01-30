@@ -9,7 +9,6 @@ int Tout = 1000;
 int _pin;
 
 Temins_TIVSA1::Temins_TIVSA1(uint8_t pin) {
-    attachInterrupt(digitalPinToInterrupt(pin), hitung_freq, RISING);
     _pin = pin;
 }
 
@@ -18,7 +17,8 @@ float Temins_TIVSA1::getPeriod() {
 }
 
 float Temins_TIVSA1::getFrequency() {
-	detachInterrupt(digitalPinToInterrupt(_pin));
+	attachInterrupt(digitalPinToInterrupt(_pin), hitung_freq, RISING);	
+	delay(100);
     if (periode > MIN_PERIOD) {
         frekuensi = ((1.0 / periode) * 1000000) / 2;
     } else {
@@ -31,7 +31,7 @@ float Temins_TIVSA1::getFrequency() {
         periode2 = periode;
         waktu = millis();
     }    
-    attachInterrupt(digitalPinToInterrupt(_pin), hitung_freq, RISING);
+    detachInterrupt(digitalPinToInterrupt(_pin));
     return frekuensi;
 }
 
