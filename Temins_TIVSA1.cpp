@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "Temins_TIVSA1.h"
+#include "Temins_TIFSA1.h"
 
 #define MIN_PERIOD 1000
 volatile unsigned long periode, periode2, waktu;
@@ -8,15 +8,15 @@ float frekuensi;
 int Tout = 1000;
 int _pin;
 
-Temins_TIVSA1::Temins_TIVSA1(uint8_t pin) {
+Temins_TIFSA1::Temins_TIFSA1(uint8_t pin) {
     _pin = pin;
 }
 
-float Temins_TIVSA1::getPeriod() {
+float Temins_TIFSA1::getPeriod() {
     return periode*2;
 }
 
-float Temins_TIVSA1::getFrequency() {
+float Temins_TIFSA1::getFrequency() {
 	attachInterrupt(digitalPinToInterrupt(_pin), hitung_freq, RISING);	
 	delay(100);
     if (periode > MIN_PERIOD) {
@@ -35,7 +35,7 @@ float Temins_TIVSA1::getFrequency() {
     return frekuensi;
 }
 
-void Temins_TIVSA1::hitung_freq(void) {
+void Temins_TIFSA1::hitung_freq(void) {
     //Serial.println("terjadi");
     if (freq > 0) {
         periode = micros() - waktu;
