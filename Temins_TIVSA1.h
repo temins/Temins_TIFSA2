@@ -1,12 +1,12 @@
-#ifndef Temins_TIVSA1_h
-#define Temins_TIVSA1_h
+#ifndef Temins_TIFSA1_h
+#define Temins_TIFSA1_h
 
 #include "Arduino.h"
 
-class Temins_TIVSA1
+class Temins_TIFSA1
 {
     public:
-    Temins_TIVSA1(uint8_t pin);
+    Temins_TIFSA1(uint8_t pin);
     float getFrequency();
     float getPeriod();
   private:
