@@ -1,8 +1,8 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include <Temins_TIVSA1.h>
+#include <Temins_TIFSA1.h>
 
-Temins_TIVSA1 sensorFreq(2); //Interrupt pin used to connect to sensor. Only use interrupt pin.
+Temins_TIFSA1 sensorFreq(2); //Interrupt pin used to connect to sensor. Only use interrupt pin.
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
@@ -12,7 +12,7 @@ void setup() {
   // Print a message to the LCD.
   lcd.backlight();
   lcd.setCursor(0, 0);
-  lcd.print("TIVSA1");
+  lcd.print("TIFSA1");
   lcd.setCursor(0, 1);
   lcd.print("Frequency Sensor");
   delay(1000);
