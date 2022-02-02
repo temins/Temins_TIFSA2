@@ -1,8 +1,8 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include <Temins_TIVSA1.h>
+#include <Temins_TIFSA1.h>
 
-Temins_TIVSA1 sensorFreq(2); //Interrupt pin used to connect to sensor. Only use interrupt pin.
+Temins_TIFSA1 sensorFreq(2); //Interrupt pin used to connect to sensor. Only use interrupt pin.
 
 void setup() {
   // put your setup code here, to run once:
