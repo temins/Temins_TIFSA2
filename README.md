@@ -1,2 +1,2 @@
-# Temins_TIVSA1
-Library for Temins_TIVSA1 Sensor
+# Temins_TIFSA1
+Library for Temins_TIFSA1 Sensor
