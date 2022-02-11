@@ -1,45 +1,42 @@
 #include "Arduino.h"
 #include "Temins_TIFSA1.h"
 
-#define MIN_PERIOD 1000
-volatile unsigned long periode, periode2, waktu;
-volatile int freq = 0;
-float frekuensi;
-int Tout = 1000;
-int _pin;
+#define TOut 2000000
+static unsigned long time1, time2, waktu;
+static int _pin;
+static float periode,frekuensi;
 
 Temins_TIFSA1::Temins_TIFSA1(uint8_t pin) {
     _pin = pin;
+    pinMode(_pin, INPUT);
 }
 
-float Temins_TIFSA1::getPeriod() {
+static float Temins_TIFSA1::getPeriod() {
+    waktu = micros();
+    while (digitalRead(_pin) == LOW) {
+        if (micros()-waktu>TOut){
+            return 0;
+        }
+    }
+    while (digitalRead(_pin) == HIGH) {
+        if (micros()-waktu>TOut){
+            return 0;
+        }
+    }
+    time1 = micros();
+    while (digitalRead(_pin) == LOW) {
+        if (micros()-waktu>TOut){
+            return 0;
+        }
+    }
+    time2 = micros();
+    periode = time2 - time1;
+    periode*=1.053;
+    periode+=260;
     return periode*2;
 }
 
 float Temins_TIFSA1::getFrequency() {
-	attachInterrupt(digitalPinToInterrupt(_pin), hitung_freq, RISING);	
-	delay(100);
-    if (periode > MIN_PERIOD) {
-        frekuensi = ((1.0 / periode) * 1000000) / 2;
-    } else {
-        frekuensi = 0;
-    }
-    if (millis() - waktu > Tout) {
-        if (periode == periode2) {
-        periode = 0;
-        }
-        periode2 = periode;
-        waktu = millis();
-    }    
-    detachInterrupt(digitalPinToInterrupt(_pin));
+    frekuensi = (1.0/getPeriod())*1000000.0;
     return frekuensi;
-}
-
-void Temins_TIFSA1::hitung_freq(void) {
-    //Serial.println("terjadi");
-    if (freq > 0) {
-        periode = micros() - waktu;
-    }
-    waktu = micros();
-    freq++;
 }
