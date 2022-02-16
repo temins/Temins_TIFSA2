@@ -32,7 +32,7 @@ static float Temins_TIFSA1::getPeriod() {
     time2 = micros();
     periode = time2 - time1;
     periode*=1.053;
-    periode+=260;
+    periode+=550;
     return periode*2;
 }
 
