@@ -11,7 +11,7 @@ Temins_TIFSA1::Temins_TIFSA1(uint8_t pin) {
     pinMode(_pin, INPUT);
 }
 
-static float Temins_TIFSA1::getPeriod() {
+float Temins_TIFSA1::getPeriod() {
     waktu = micros();
     while (digitalRead(_pin) == LOW) {
         if (micros()-waktu>TOut){
