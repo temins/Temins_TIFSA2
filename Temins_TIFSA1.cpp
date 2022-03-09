@@ -17,21 +17,24 @@ float Temins_TIFSA1::getPeriod() {
         if (micros()-waktu>TOut){
             return 0;
         }
+        yield();
     }
     while (digitalRead(_pin) == HIGH) {
         if (micros()-waktu>TOut){
             return 0;
         }
+        yield();
     }
     time1 = micros();
     while (digitalRead(_pin) == LOW) {
         if (micros()-waktu>TOut){
             return 0;
         }
+        yield();
     }
     time2 = micros();
     periode = time2 - time1;
-    periode*=1.053;
+    periode*=1.035;
     periode+=550;
     return periode*2;
 }
