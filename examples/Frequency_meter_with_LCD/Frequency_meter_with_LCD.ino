@@ -1,3 +1,6 @@
+/* Library written by Temins
+    Dibuat sendiri oleh tim kami. Mohon beli produk asli dari kami untuk mensupport kami. */
+
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <Temins_TIFSA1.h>
