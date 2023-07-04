@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "Temins_TIFSA1.h"
+#include "Temins_TIFSA2.h"
 
 #define TOut 2000000
 static unsigned long time1, time2, waktu;
@@ -35,7 +35,7 @@ float Temins_TIFSA1::getPeriod() {
     time2 = micros();
     periode = time2 - time1;
     periode*=1.035;
-    periode+=550;
+    periode+=450;
     return periode*2;
 }
 
