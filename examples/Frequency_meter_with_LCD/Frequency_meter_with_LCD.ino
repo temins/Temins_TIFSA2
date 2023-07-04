@@ -3,9 +3,9 @@
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include <Temins_TIFSA1.h>
+#include <Temins_TIFSA2.h>
 
-Temins_TIFSA1 sensorFreq(2); //Pin used to connect to sensor. This example use pin 2
+Temins_TIFSA2 sensorFreq(2); //Pin used to connect to sensor. This example use pin 2
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
