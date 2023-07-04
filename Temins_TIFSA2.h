@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 
-class Temins_TIFSA1
+class Temins_TIFSA2
 {
     public:
     Temins_TIFSA2(uint8_t pin);
