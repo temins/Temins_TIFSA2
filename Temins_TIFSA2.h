@@ -1,5 +1,5 @@
-#ifndef Temins_TIFSA1_h
-#define Temins_TIFSA1_h
+#ifndef Temins_TIFSA2_h
+#define Temins_TIFSA2_h
 
 #include "Arduino.h"
 
