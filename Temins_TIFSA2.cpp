@@ -6,12 +6,12 @@ static unsigned long time1, time2, waktu;
 static int _pin;
 static float periode,frekuensi;
 
-Temins_TIFSA1::Temins_TIFSA1(uint8_t pin) {
+Temins_TIFSA2::Temins_TIFSA2(uint8_t pin) {
     _pin = pin;
     pinMode(_pin, INPUT);
 }
 
-float Temins_TIFSA1::getPeriod() {
+float Temins_TIFSA2::getPeriod() {
     waktu = micros();
     while (digitalRead(_pin) == LOW) {
         if (micros()-waktu>TOut){
@@ -39,7 +39,7 @@ float Temins_TIFSA1::getPeriod() {
     return periode*2;
 }
 
-float Temins_TIFSA1::getFrequency() {
+float Temins_TIFSA2::getFrequency() {
     frekuensi = (1.0/getPeriod())*1000000.0;
     return frekuensi;
 }
