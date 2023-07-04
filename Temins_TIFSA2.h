@@ -6,7 +6,7 @@
 class Temins_TIFSA1
 {
     public:
-    Temins_TIFSA1(uint8_t pin);
+    Temins_TIFSA2(uint8_t pin);
     float getFrequency();
     float getPeriod();
   private:
