@@ -1,9 +1,9 @@
 /* Library written by Temins
     Dibuat sendiri oleh tim kami. Mohon beli produk asli dari kami untuk mensupport kami. */
 
-#include <Temins_TIFSA1.h>
+#include <Temins_TIFSA2.h>
 
-Temins_TIFSA1 sensorFreq(2); //Pin used to connect to sensor. This example use pin 2
+Temins_TIFSA2 sensorFreq(2); //Pin used to connect to sensor. This example use pin 2
 
 void setup() {
   Serial.begin(9600);
